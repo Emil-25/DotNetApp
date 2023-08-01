@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.33913.275
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetApp", "DotNetApp.csproj", "{F9BE8463-A8E6-4CE2-8933-B3BFD6A4EEDC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetAppMVC", "DotNetAppMVC.csproj", "{F9BE8463-A8E6-4CE2-8933-B3BFD6A4EEDC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetAppRazor", "..\DotNetAppRazor\DotNetAppRazor.csproj", "{7F420B2F-9D7E-4961-B375-7735D5FF2EBE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{F9BE8463-A8E6-4CE2-8933-B3BFD6A4EEDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9BE8463-A8E6-4CE2-8933-B3BFD6A4EEDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9BE8463-A8E6-4CE2-8933-B3BFD6A4EEDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F420B2F-9D7E-4961-B375-7735D5FF2EBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F420B2F-9D7E-4961-B375-7735D5FF2EBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F420B2F-9D7E-4961-B375-7735D5FF2EBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F420B2F-9D7E-4961-B375-7735D5FF2EBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
