@@ -16,8 +16,8 @@ namespace DotNetApp.Models
         public string Name { get; set; }
 
         [Required]
-        [Range(1,100)]
+        [Range(1, 100)]
         [DisplayName("Display Order")]
-        public int DisplayOrder { get; set; } 
+        public int DisplayOrder { get; set; }
     }
 }
