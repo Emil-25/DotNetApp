@@ -20,8 +20,4 @@
     <ProjectReference Include="..\DotNetApp.DataAccess\DotNetApp.DataAccess.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
 </Project>

@@ -1,6 +1,8 @@
 ﻿using DotNetApp.DataAccess.Repository.IRepository;
 using DotNetApp.Models;
+using DotNetApp.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace DotNetAppMVC.Areas.Admin.Controllers
 {
@@ -14,19 +16,36 @@ namespace DotNetAppMVC.Areas.Admin.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            List<Product> objProductList = _unitOfWork.Product.GetAll().ToList();
+
+            return View(objProductList);
         }
 
         public IActionResult Create()
         {
-            return View();
+
+            // ViewBag.CategoryList = CategoryList;
+            // ViewData["CategoryList"] = CategoryList;
+
+            ProductVM productVM = new()
+            {
+                CategoryList = _unitOfWork.Category.GetAll().Select(u => new SelectListItem
+                {
+                    Text = u.Name,
+                    Value = u.Id.ToString(),
+                }),
+
+                Product = new Product()
+            };
+
+            return View(productVM);
         }
         [HttpPost]
-        public IActionResult Create(Product obj)
+        public IActionResult Create(ProductVM obj)
         {
             if (ModelState.IsValid)
             {
-                _unitOfWork.Product.Add(obj);
+                _unitOfWork.Product.Add(obj.Product);
                 _unitOfWork.Save();
             }
             return RedirectToAction("Index");
