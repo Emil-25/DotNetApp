@@ -6,10 +6,10 @@
             <h1>Product List</h1>
         </div>
         <div class="col-6 text-end">
-            <a asp-controller="Product" asp-action="Create" class="btn btn-primary"><i class="bi bi-plus-circle"></i> Create New Product</a>
+            <a asp-controller="Product" asp-action="Upsert" class="btn btn-primary"><i class="bi bi-plus-circle"></i> Create New Product</a>
         </div>
     </div>
-    <table class="table table-bordered table-striped table-dark">
+    <table id="tblData" class="table table-bordered table-striped table-dark">
         <thead>
             <tr>
                 <th>Title</th>
@@ -17,31 +17,13 @@
                 <th>Price</th>
                 <th>Author</th>
                 <th>Category</th>
-                <th class="text-center">Actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
-        <tbody>
-            @foreach (var obj in Model.OrderByDescending(u => u.Id))
-            {
-                <tr>
-                    <td>@obj.Title</td>
-                    <td>@obj.ISBN</td>
-                    <td>@obj.Price</td>
-                    <td>@obj.Author</td>
-                    <td>@obj.Author</td>
-                    <td>
-                        <div class="btn-group w-100" role="group">
-                            <a asp-controller="Product" asp-action="Edit" asp-route-Id="@obj.Id" class="btn btn-primary mx-2">
-                                <i class="bi bi-pencil-square"></i> Edit
-                            </a>
-                            <a asp-controller="Product" asp-action="Delete" asp-route-Id="@obj.Id" class="btn btn-danger mx-2">
-                                <i class="bi bi-trash-fill"></i> Delete
-                            </a>
-                        </div>
-                    </td>
-                </tr>
-            }
-        </tbody>
     </table>
 </div>
+
+@section Scripts {
+    <script src="~/js/product.js"></script>
+}
                  
