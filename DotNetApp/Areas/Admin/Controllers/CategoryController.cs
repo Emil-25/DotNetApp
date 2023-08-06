@@ -1,11 +1,14 @@
 ﻿using DotNetApp.DataAccess.Data;
 using DotNetApp.DataAccess.Repository.IRepository;
 using DotNetApp.Models;
+using DotNetApp.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DotNetAppMVC.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = SD.Role_Admin)]
     public class CategoryController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;

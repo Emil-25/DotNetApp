@@ -1,6 +1,8 @@
 ﻿using DotNetApp.DataAccess.Repository.IRepository;
 using DotNetApp.Models;
 using DotNetApp.Models.ViewModels;
+using DotNetApp.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -8,6 +10,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace DotNetAppMVC.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = SD.Role_Admin)]
     public class ProductController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
