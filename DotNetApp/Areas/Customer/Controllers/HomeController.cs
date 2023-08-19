@@ -1,5 +1,6 @@
 using DotNetApp.DataAccess.Repository.IRepository;
 using DotNetApp.Models;
+using DotNetApp.Utility;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -50,16 +51,18 @@ namespace DotNetAppMVC.Areas.Customer.Controllers
                 // ShoppingCart exists
                 shoppingCartFromDb.Count += shoppingCart.Count;
                 _unitOfWork.ShoppingCart.Update(shoppingCartFromDb);
-            }
-            else
+				_unitOfWork.Save();
+			}
+			else
             {
                 // Create New
                 _unitOfWork.ShoppingCart.Add(shoppingCart);
-            }
+				_unitOfWork.Save();
+				HttpContext.Session.SetInt32(SD.SessionCart,
+				_unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == userId).Count());
+			}
 
             TempData["success"] = "Cart updated successfully";
-
-            _unitOfWork.Save();
 
             return RedirectToAction(nameof(Index));
         }
