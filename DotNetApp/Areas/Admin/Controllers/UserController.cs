@@ -1,5 +1,6 @@
 ﻿using DotNetApp.DataAccess.Repository.IRepository;
 using DotNetApp.Models;
+using DotNetApp.Models.ViewModels;
 using DotNetApp.Utility;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
